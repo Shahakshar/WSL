@@ -1,5 +1,22 @@
 # 🛠️ Developed Ownership Transfer and Revoke Feature
 
+## 📌 Snippet Of My Work
+
+<p align="center">
+  <img src="images/swagger-doc.png" alt="Screenshot 1" width="48%" style="margin-right: 10px;"/>
+  <img src="images/swagger-testing.png" alt="Screenshot 2" width="48%"/>
+</p>
+---
+<p align="center">
+  <img src="images/transfer.png" alt="Screenshot 1" width="48%" style="margin-right: 10px;"/>
+  <img src="images/revoke.png" alt="Screenshot 2" width="48%"/>
+</p>
+---
+<p align="center">
+  <img src="images/database1.png" alt="Screenshot 1" width="48%" style="margin-right: 10px;"/>
+  <img src="images/database2.png" alt="Screenshot 2" width="48%"/>
+</p>
+
 ## 📌 PROBLEM 1
 
 In the document, a problem is described in which you have to implement **ownership transfer and revoke functionality**.
