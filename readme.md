@@ -60,3 +60,9 @@ The table looks like this:
 | file_id | file_name | created_at | original_owner | ownership | ... |
 
 This is the structure I’m thinking of for the given task, which aligns with the provided requirements.
+
+---
+
+# For Testing Endpoints and For Documentation 
+
+## http://localhost:8000/ or http://localhost:8000/redoc/
