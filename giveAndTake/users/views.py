@@ -5,7 +5,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 
+
+@swagger_auto_schema(method='post', request_body=UserSerializer, responses={201: UserSerializer})
 @api_view(['POST'])
 def create_user(request):
     serializer = UserSerializer(data=request.data)
@@ -14,6 +18,21 @@ def create_user(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@swagger_auto_schema(
+    method='get',
+    manual_parameters=[openapi.Parameter('email', openapi.IN_PATH, description="User email", type=openapi.TYPE_STRING)],
+    responses={200: UserSerializer}
+)
+@swagger_auto_schema(
+    method='put',
+    request_body=UserSerializer,
+    responses={200: UserSerializer}
+)
+@swagger_auto_schema(
+    method='delete',
+    manual_parameters=[openapi.Parameter('email', openapi.IN_PATH, description="User email", type=openapi.TYPE_STRING)],
+    responses={204: 'User deleted successfully'}
+)
 @api_view(['GET', 'PUT', 'DELETE'])
 def user_detail(request, email):
     user = get_object_or_404(User, email=email)

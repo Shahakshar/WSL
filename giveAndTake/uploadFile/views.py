@@ -4,8 +4,11 @@ from rest_framework import status
 from .models import File, TransferHistory
 from .utils.cloudinary_utils import upload_to_cloudinary, delete_from_cloudinary
 from django.db.models import Q
+from drf_yasg.utils import swagger_auto_schema
+from .serializers import UploadFileSerializer, TransferFileSerializer, RevokeTransferSerializer, GetFileSerializer
 
 
+@swagger_auto_schema(method='post', request_body=UploadFileSerializer)
 @api_view(['POST'])
 def upload_file(request):
     file = request.FILES.get('file')
@@ -48,6 +51,7 @@ def upload_file(request):
 #     file_obj.delete()
 #     return Response({'message': 'File deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
+@swagger_auto_schema(method='post', request_body=TransferFileSerializer)
 @api_view(['POST'])
 def transfer_file(request):
     public_id = request.data.get('uplic_id')
@@ -83,6 +87,7 @@ def transfer_file(request):
     
     return Response({'message': 'File transferred successfully', 'new_owner': file_obj.owner}, status=status.HTTP_200_OK)
 
+@swagger_auto_schema(method='post', request_body=RevokeTransferSerializer)
 @api_view(['POST'])
 def revoke_transfer(request):
     public_id = request.data.get('public_id')
@@ -111,6 +116,7 @@ def revoke_transfer(request):
     )
     return Response({'message': 'Transfer revoked successfully', 'owner': file_obj.owner}, status=status.HTTP_200_OK)
 
+@swagger_auto_schema(method='post', request_body=GetFileSerializer)
 @api_view(['POST'])
 def get_file(request):
     email = request.data.get('email')

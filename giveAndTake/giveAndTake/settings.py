@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'users',
     'uploadFile',
     'cloudinary',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
