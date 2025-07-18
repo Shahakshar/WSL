@@ -94,6 +94,19 @@ To interact with the API documentation and test the endpoints locally, simply na
 
 These links will provide you with the auto-generated Swagger UI, allowing you to explore the API and test the ownership transfer and revoke functionalities in real-time.
 
+## 💻 Tech Stack
+
+Here are the key technologies and frameworks used in the development of this Task:
+
+* **Backend Language:** Python
+* **Testing Endpoint:** Postman, Swagger UI
+* **File Managment:** Cloudinary 
+* **Documentation:** Swagger Doc (Auto generate)
+* **Database:** MYSQL (Run Inside the Docker)
+
+
+
+
 
 
 
